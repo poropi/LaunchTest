@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jp.ne.poropi.launchtest">
+          package="jp.ne.poropi.launchtest">
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
 
     <application
         android:name=".application.MyApplication"
@@ -13,92 +16,129 @@
         <activity
             android:name=".activity.StandardTop"
             android:label="StandardTop"
-            android:screenOrientation="portrait"
-            android:launchMode="standard">
+            android:launchMode="standard"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-            <intent-filter android:label="@string/app_name" android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="launchtest.rl" android:pathPrefix="/standard"></data>
+            <intent-filter
+                android:autoVerify="true"
+                android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="launchtest.rl"
+                    android:pathPrefix="/standard"
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.SingletaskTop"
             android:label="SingletaskTop"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-            <intent-filter android:label="@string/app_name" android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="launchtest.rl" android:pathPrefix="/singletask"></data>
+            <intent-filter
+                android:autoVerify="true"
+                android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="launchtest.rl"
+                    android:pathPrefix="/singletask"
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SingletopTop"
+        <activity
+            android:name=".activity.SingletopTop"
             android:label="SingletopTop"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-            <intent-filter android:label="@string/app_name" android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="launchtest.rl" android:pathPrefix="/singletop"></data>
+            <intent-filter
+                android:autoVerify="true"
+                android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="launchtest.rl"
+                    android:pathPrefix="/singletop"
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SingleinstanceTop"
+        <activity
+            android:name=".activity.SingleinstanceTop"
             android:label="SingleinstanceTop"
-            android:screenOrientation="portrait"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-            <intent-filter android:label="@string/app_name" android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="launchtest.rl" android:pathPrefix="/singleinstance"></data>
+            <intent-filter
+                android:autoVerify="true"
+                android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="launchtest.rl"
+                    android:pathPrefix="/singleinstance"
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.StandardNext"
             android:label="StandardNext"
-            android:screenOrientation="portrait"
-            android:launchMode="standard">
+            android:launchMode="standard"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".activity.SingletaskNext"
             android:label="SingletaskNext"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.SingletopNext"
+        <activity
+            android:name=".activity.SingletopNext"
             android:label="SingletopNext"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.SingleinstanceNext"
+        <activity
+            android:name=".activity.SingleinstanceNext"
             android:label="SingleinstanceNext"
-            android:screenOrientation="portrait"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
         </activity>
+
+        <service
+            android:name=".service.UIOverlayService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>

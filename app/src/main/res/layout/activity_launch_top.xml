@@ -1,154 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    >
 
-    <Switch
-        android:id="@+id/switchNewTask"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="FLAG_ACTIVITY_NEW_TASK" />
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/footerView"
+        android:layout_above="@+id/footerView"
+        >
 
-    <Switch
-        android:id="@+id/switchSingleTop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="FLAG_ACTIVITY_SINGLE_TOP" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Switch
-        android:id="@+id/switchClearTop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="FLAG_ACTIVITY_CLEAR_TOP" />
+            <Switch
+                android:id="@+id/switchNewTask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="FLAG_ACTIVITY_NEW_TASK"/>
 
-    <Switch
-        android:id="@+id/switchNoAnimation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="FLAG_ACTIVITY_NO_ANIMATION" />
+            <Switch
+                android:id="@+id/switchSingleTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="FLAG_ACTIVITY_SINGLE_TOP"/>
 
-    <Switch
-        android:id="@+id/switchNoHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="FLAG_ACTIVITY_NO_HISTORY" />
+            <Switch
+                android:id="@+id/switchClearTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="FLAG_ACTIVITY_CLEAR_TOP"/>
 
-    <Switch
-        android:id="@+id/switchLaunchedFromHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY" />
+            <Switch
+                android:id="@+id/switchNoAnimation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="FLAG_ACTIVITY_NO_ANIMATION"
+                android:visibility="gone"/>
 
-    <Switch
-        android:id="@+id/switchExcludeFromRecents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS" />
+            <Switch
+                android:id="@+id/switchNoHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="FLAG_ACTIVITY_NO_HISTORY"/>
 
-    <Switch
-        android:id="@+id/switchPreviousIsTop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="FLAG_ACTIVITY_PREVIOUS_IS_TOP" />
+            <Switch
+                android:id="@+id/switchLaunchedFromHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY"/>
 
-    <Switch
-        android:id="@+id/switchReorderToFront"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="FLAG_ACTIVITY_REORDER_TO_FRONT" />
+            <Switch
+                android:id="@+id/switchExcludeFromRecents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS"/>
+
+            <Switch
+                android:id="@+id/switchPreviousIsTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="FLAG_ACTIVITY_PREVIOUS_IS_TOP"/>
+
+            <Switch
+                android:id="@+id/switchReorderToFront"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="FLAG_ACTIVITY_REORDER_TO_FRONT"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/standerdButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Standard Top"/>
+
+                <Button
+                    android:id="@+id/standerdNextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Standard Next"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/singleTopButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Singletop top"/>
+
+                <Button
+                    android:id="@+id/singleTopNextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Singletop Next"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/singletaskButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Singletask Top"/>
+
+                <Button
+                    android:id="@+id/singletaskNextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Singletask Next"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/singleinstanceButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Singleinstance Top"/>
+
+                <Button
+                    android:id="@+id/singleinstanceNextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Singleinstance Next"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
+        android:id="@+id/footerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/standerdButton"
+            android:id="@+id/serviceStartButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Standard Top" />
+            android:text="ログ表示"/>
 
         <Button
-            android:id="@+id/standerdNextButton"
+            android:id="@+id/serviceEndButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Standard Next" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/singleTopButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Singletop top" />
-
-        <Button
-            android:id="@+id/singleTopNextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Singletop Next" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/singletaskButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Singletask Top" />
-
-        <Button
-            android:id="@+id/singletaskNextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Singletask Next" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/singleinstanceButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Singleinstance Top" />
-
-        <Button
-            android:id="@+id/singleinstanceNextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Singleinstance Next" />
+            android:text="ログ非表示"/>
     </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

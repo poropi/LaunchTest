@@ -1,16 +1,23 @@
 package jp.ne.poropi.launchtest.activity
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import jp.ne.poropi.launchtest.R
+import jp.ne.poropi.launchtest.extension.REQUEST_SYSTEM_OVERLAY
+import jp.ne.poropi.launchtest.extension.checkOverlayPermission
+import jp.ne.poropi.launchtest.extension.requestOverlayPermission
+import jp.ne.poropi.launchtest.service.UIOverlayService
 import kotlinx.android.synthetic.main.activity_launch_top.*
 import timber.log.Timber
 
 
-
 open class LaunchTopActivity: AppCompatActivity(), View.OnClickListener{
+
+    private var serviceIntetn: Intent? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Timber.d("get intent frags : 0x%08x".format(intent!!.flags))
@@ -27,6 +34,54 @@ open class LaunchTopActivity: AppCompatActivity(), View.OnClickListener{
         singleinstanceNextButton.setOnClickListener(this)
         singletaskNextButton.setOnClickListener(this)
 
+        serviceIntetn = Intent(this, UIOverlayService::class.java)
+
+        serviceStartButton.setOnClickListener{
+            if (!checkOverlayPermission()) {
+                requestOverlayPermission()
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    startForegroundService(serviceIntetn)
+                } else {
+                    startService(serviceIntetn)
+                }
+            }
+        }
+        serviceEndButton.setOnClickListener{
+            stopService(serviceIntetn)
+        }
+
+        serviceStartButton.visibility = View.GONE
+        serviceEndButton.visibility = View.GONE
+
+        Thread {
+            val intent = Intent(UIOverlayService.ACTION_OVERLAY_DISPLAY)
+            sendBroadcast(intent)
+        }.start()
+
+    }
+
+    override fun onDestroy() {
+        Thread {
+            val intent = Intent(UIOverlayService.ACTION_OVERLAY_DISPLAY)
+            sendBroadcast(intent)
+        }.start()
+
+        super.onDestroy()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when (requestCode) {
+            REQUEST_SYSTEM_OVERLAY ->
+                if (checkOverlayPermission()) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        startForegroundService(Intent(this, UIOverlayService::class.java))
+                    } else {
+                        startService(Intent(this, UIOverlayService::class.java))
+                    }
+                }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onClick(v: View?) {
@@ -90,5 +145,5 @@ open class LaunchTopActivity: AppCompatActivity(), View.OnClickListener{
         Timber.d("set intent frags : 0x%08x".format(intent!!.flags))
         startActivity(intent)
     }
-
 }
+
